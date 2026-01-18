@@ -82,5 +82,5 @@ Last week was unremarkable with no new maxima achieved. For Week 10, I focus on 
 🧾 Documentation
 ---
 [Datasheet](./DATASHEET.md)  
-[Model Card](./Mdoel_CARD.md)
+[Model Card](./MODEL_CARD.md)
 

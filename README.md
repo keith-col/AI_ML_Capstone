@@ -71,6 +71,7 @@ Overall a decent set of results with two new maximums. The shift towards more ex
 Last week was unremarkable with no new maxima achieved. For Week 10, I focus on hyperparameter refinement while staying in exploitation mode. I also stop using experimental models like ensemble NNs, shifting back to more stable methods to maximise gains in the final stretch of the project.
 
 *Week 11* <br />
+Week 10 output was a very strong one with three new maximums achieved across different functions. The refined hyperparameters—particularly lowered beta values and increased candidate resolution—helped the Gaussian Process model exploit local peaks more effectively. For next query, I continue this exploitative approach, focusing on fine-tuning known high-performing regions rather than expanding the search broadly.
 
 *Week 12* <br />
 

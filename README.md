@@ -74,8 +74,10 @@ Last week was unremarkable with no new maxima achieved. For Week 10, I focus on 
 Week 10 output was a very strong one with three new maximums achieved across different functions. The refined hyperparameters—particularly lowered beta values and increased candidate resolution—helped the Gaussian Process model exploit local peaks more effectively. For next query, I continue this exploitative approach, focusing on fine-tuning known high-performing regions rather than expanding the search broadly.
 
 *Week 12* <br />
+Last week delivered two marginal new maximums, which is acceptable given clear diminishing returns at this stage. The strategy now focuses purely on fine tuning rather than structural changes. Hyperparameters are adjusted conservatively, favouring exploitation while maintaining enough flexibility to capture small local improvements in the final rounds.
 
 *Week 13* <br />
+With two new maximums achieved last week, I enter the final round aiming to consolidate gains rather than experiment. Most models remain unchanged to capitalise on the data accumulated over 12 rounds. Where outputs seem significantly affected by noise, I apply manual overrides to re-query strong past samples. The goal is to squeeze final improvements through stable, exploitation-heavy strategies.
 
 🧪 Tools
 ---

@@ -37,8 +37,38 @@ This setting simulates high-cost real-world experiments (e.g., lab testing, A/B 
 
 🧠 Technical Approach
 ---
+This project adopts an iterative, model‑based optimisation framework designed for settings with limited data, expensive evaluations, and unknown objective functions. For each black‑box function, I modelled the underlying response surface using Gaussian Process (GP) regression as a probabilistic surrogate, enabling uncertainty‑aware decision‑making throughout the optimisation process.
 
-💡 Weekly Summary
+In the early rounds, the strategy prioritised exploration, using acquisition functions such as Upper Confidence Bound (UCB) with high exploration parameters to probe uncertain regions of the search space. As more data was collected, the approach gradually shifted toward exploitation, lowering exploration parameters and increasing candidate resolution to refine promising regions and local optima. This transition was not uniform: each function evolved independently based on observed behaviour, dimensionality, and stability of outputs.
+
+For low‑dimensional functions, visual diagnostics (e.g. heatmaps and surface intuition) supported hypothesis generation and manual interventions. For higher‑dimensional functions, I relied more heavily on acquisition‑driven sampling and controlled hyperparameter tuning. In selected cases, I experimented with neural network surrogates, ensemble scoring, and manual overrides to test robustness or escape stagnation, though GP‑based Bayesian optimisation remained the most reliable method overall.
+
+Across 13 rounds, the approach balanced adaptability with discipline, favouring incremental, evidence‑driven refinement over aggressive experimentation in later stages as diminishing returns became apparent.
+
+🧪 List of Methods & Tools
+---
+- Bayesian Optimisation  
+- Gaussian Process (GP) Regression  
+- Acquisition Functions: UCB, Expected Improvement, Probability of Improvement  
+- Neural Network Regression (experimental)  
+- Ensemble Scoring Methods (NN ensembles)  
+- Manual Heuristics and Overrides  
+- Python  
+- NumPy  
+- Pandas  
+- scikit-learn  
+- PyTorch  
+- Matplotlib / Seaborn  
+- Jupyter Notebook  
+- PyCharm 
+
+🧾 Documentation
+---
+*Datasheet*: [Datasheet](./DATASHEET.md)  
+*Model Card*: [Model Card](./MODEL_CARD.md)  
+*Code*: [Notebooks/](Notebooks/)
+
+💡 Appendix: Weekly Summary
 ---
 *Week 1* <br /> 
 The priority was exploration, given the small number of initial samples. I used Gaussian Process (GP) models to approximate each function and selected new queries using primarily UCB (Upper Confidence Bound) with a high exploration parameter (β = 4–8). In low-dimensional cases (Functions 1–3), I used heatmaps or simple visualisation tools to identify meaningful regions, and introduced specific twist such as low-value toggle on certain inputs. In higher-dimensional cases (Functions 4–8), where patterns were unclear, I applied consistent exploratory settings across the board to collect more informative data early on.
@@ -78,12 +108,4 @@ Last week delivered two marginal new maximums, which is acceptable given clear d
 
 *Week 13* <br />
 With two new maximums achieved last week, I enter the final round aiming to consolidate gains rather than experiment. Most models remain unchanged to capitalise on the data accumulated over 12 rounds. Where outputs seem significantly affected by noise, I apply manual overrides to re-query strong past samples. The goal is to squeeze final improvements through stable, exploitation-heavy strategies.
-
-🧪 Tools
----
-
-🧾 Documentation
----
-[Datasheet](./DATASHEET.md)  
-[Model Card](./MODEL_CARD.md)
 
